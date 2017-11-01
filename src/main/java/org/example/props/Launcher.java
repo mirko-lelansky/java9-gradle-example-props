@@ -8,24 +8,13 @@ public final class Launcher {
 
     public static void main(String[] args) {
         final String propertiesFile = "config.properties";
-        final Module mod = Launcher.class.getModule();
-        InputStream modResource = null;
-        InputStream classResource;
         final String applicationKey = "application.id";
 
-        try {
-            modResource = mod.getResourceAsStream(propertiesFile);
-        } catch (IOException e) {
-            System.err.println(e.getLocalizedMessage());
-        }
-        classResource = Launcher.class.getResourceAsStream("../../../" + propertiesFile);
+        final InputStream classResource = Launcher.class.getResourceAsStream("../../../" + propertiesFile);
 
-        if(modResource != null || classResource != null) {
-            if(modResource != null) {
-                printProperty(modResource, applicationKey);
-            } else {
-                printProperty(classResource, applicationKey);
-            }
+
+        if(classResource != null) {
+            printProperty(classResource, applicationKey);
         } else {
             throw new IllegalStateException("One resource should be found.");
         }
