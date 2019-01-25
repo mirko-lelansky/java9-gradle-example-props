@@ -3,10 +3,11 @@ package org.example.props;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Objects;
 
 public final class Launcher {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final String propertiesFile = "config.properties";
         final Module mod = Launcher.class.getModule();
         InputStream modResource = null;
@@ -20,8 +21,8 @@ public final class Launcher {
         }
         classResource = Launcher.class.getResourceAsStream("../../../" + propertiesFile);
 
-        if(modResource != null || classResource != null) {
-            if(modResource != null) {
+        if(Objects.nonNull(modResource) || Objects.nonNull(classResource)) {
+            if(Objects.nonNull(modResource)) {
                 printProperty(modResource, applicationKey);
             } else {
                 printProperty(classResource, applicationKey);
