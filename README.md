@@ -1,16 +1,14 @@
-# java9-gradle-example-props
+# java11-gradle-example-props
 
-Minimal gradle java 9 examples that shows a bug with the experimental plugins
-of gradle for java 9 module system.
-
-If you use the run command than the jvm didn't find the resource file on the
-path, but if you use the install command and run the shell or cmd file the
-example is working.
+Minimal gradle java 11 examples that shows the properties location from the
+module path. With java 9 and the chainsaw plugin of gradle this example didn't
+work with "clean run". But with the moduleplugin from javamodularity and java 11
+this example will work.
 
 ## Installation
 
-If you want to use this project you need java 9(9.0.1 for example) and
-gradle 4.2.1 or use the gradle wrapper.
+If you want to use this project you need java 11 and gradle 5.1.1 or use the
+gradle wrapper.
 
 ## Usage
 
